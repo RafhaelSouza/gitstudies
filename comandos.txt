@@ -1,7 +1,13 @@
-git init   -> Inicia um repositório GIT.
-git status -> Informa o estado de um repositório.
-git add    -> Rastreia uma pasta ou arquivo para versionamento.
+GIT LOCAL
+
+git init                         -> Inicia um repositório GIT.
+git status                       -> Informa o estado de um repositório.
+git add                          -> Rastreia uma pasta ou arquivo para versionamento.
 git rm --cached PASTA ou ARQ.ext -> Remove o rastreamento de uma pasta ou arquivo.
 git commit -m "Mensagem"         -> Grava as mudanças feitas no repositório.
 git log                          -> Verifica o histório de alterações de um repositório.
-git remote add origin LINK       ->   
+
+GIT REMOTO
+
+git remote add origin LINK -> Adiciona um repositório remoto ao seu repositório local.
+git push origin master     -> Envia as alterações locais para a branch remota master.  
