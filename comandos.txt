@@ -1,3 +1,5 @@
 git init   -> Inicia um repositório GIT
 git status -> Informa o estado de um repositório GIT
 git add    -> Rastreia uma pasta ou arquivo para versionamento.
+git rm --cached PASTA ou ARQ.ext -> Remove o rastreamento de uma pasta ou arquivo
+git commit -m "Mensagem"         -> Grava as mudanças feitas no repositório
