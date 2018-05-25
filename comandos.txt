@@ -1,0 +1,3 @@
+git init   -> Inicia um repositório GIT
+git status -> Informa o estado de um repositório GIT
+git add    -> Rastreia uma pasta ou arquivo para versionamento.
