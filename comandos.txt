@@ -30,15 +30,19 @@ git diff Cod-Commit-A..Cod-B     -> Diferenças entre dois commits.
 git diff Cod-Commit~2            -> Diferenças nos arquivos do commit de código... em relação aos dois commits feitos antes, + a area de stage.
 
 git branch                       -> Lista as branchs existentes.
-git branch -v                    -> Retorna informações detalhadas da branch.
+git branch -v                    -> Retorna para qual commit a branch está apontando.
+git branch -r                    -> Retorna informações das branches remotas.
+git branch -a                    -> Retorna informações das branches locais e remotas.
 git branch nomebranch            -> Cria uma branch com o nome informado.
 git branch -d nomebranch         -> Deleta a branch informada.
 git branch -D nomebranch         -> Deleta a branch informada mesmo que ela tenha commits ainda não aplicados em outras branches.
 git branch --no-merged           -> Verifica as branches não mescladas.
 git merge nbnmesclada -m         -> Mescla a branch atual com branch informada. Parametro --no-ff para evitar merges fast-foward, forçando commit.
 git checkout nomebranch          -> Alterna para a branch informada.
-git checkout -b nomebranch       -> Cria uma branch com o nome informado e lterna para a branch criada.
-git rebase nomebranch            -> Mescla as branches sem o histórico do merge.      
+git checkout -b nomebranch       -> Cria uma branch com o nome informado e alterna para a branch criada.
+git checkout -b nomebranch origin/nomeremoto -> Cria uma branch com o nome informado a partir da branch remota e alterna para a branch criada.
+git checkout -t origin/nomeremoto            -> ||
+git rebase nomebranch            -> Mescla as branches, remotas ou locais, sem o histórico do merge.      
 git rebase master                -> Mescla a branch atual com master, mantendo o histórico da master intacto.
 
 GIT REMOTO 
@@ -53,4 +57,8 @@ git push nm_servidor master      -> Envia os commits locais para o servidor remo
 git pull nm_servidor master      -> Recebe os commits remotos no projeto local.
 
 git remote add origin LINK       -> Adiciona um repositório remoto ao seu repositório local.
-git push origin master           -> Envia as alterações locais para a branch remota master. 
+git push origin master           -> Envia as alterações locais para a branch remota master.
+git pull origin master           -> Recebe as alterações remotas na branch local.
+git pull --rebase                -> Recebe as alterações remotas na branch local lineariazando os commits.
+git fetch origin                 -> Traz os commits das branches remotas que não estavam presentes localmente.
+git push origin :contato         -> Após detelatada uma branch local, também apaga a remota.
