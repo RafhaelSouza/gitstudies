@@ -22,6 +22,7 @@ git log -n 2 --oneline --stat    -> Combinação de comandos.
 git log --parents                -> Lista os commits com seus respectivos pais.
 git log --decorate               -> Retorna o commit que está apontando para a master.
 git log --all                    -> Retorna os commits que estão em todo o repositório.
+git log --graph --oneline nB1 nB2 -> Retorna de forma "gráfica" a comparação de duas branches.
 
 git diff                         -> Diferenças entre o arquivo alterado na area de stage não rastreados e o que foi comitado anteriormente.
 git diff --staged                -> Diferenças entre o arquivo alterado na area de stage rastreadas e o que foi comitado anteriormente.
