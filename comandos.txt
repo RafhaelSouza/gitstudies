@@ -41,6 +41,7 @@ git branch -d nomebranch         -> Deleta a branch informada.
 git branch -D nomebranch         -> Deleta a branch informada mesmo que ela tenha commits ainda não aplicados em outras branches.
 git branch --no-merged           -> Verifica as branches não mescladas.
 git merge nbnmesclada -m         -> Mescla a branch atual com branch informada. Parametro --no-ff para evitar merges fast-foward, forçando commit.
+git merge --abort                -> Restaura os arquivos ao estado antes do merge.
 git checkout nomebranch          -> Alterna para a branch informada.
 git checkout -b nomebranch       -> Cria uma branch com o nome informado e alterna para a branch criada.
 git checkout -b nomebranch origin/nomeremoto -> Cria uma branch com o nome informado a partir da branch remota e alterna para a branch criada.
@@ -56,6 +57,7 @@ git tag nometag Cod-Commit       -> Cria uma TAG para o código do commit espef�
 git tag -d nometag               -> Exclui uma TAG.
 git tag -a nometag -m "..."      -> Cria uma TAG anotada.
 git show -s nometag              -> Retorna as informações de uma TAG anotada.
+git show Cod-Commit              -> Compara um commit ao seu commit pai.
 git push origin nometag          -> Envia a tag local para o servidor remoto.
 git push origin --tags           -> Envias todas as tags locais para o servidor remoto.
 
