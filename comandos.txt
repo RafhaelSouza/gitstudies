@@ -67,10 +67,10 @@ git rebase --abort               -> Após um rebase com conflito, volta a situa�
 git rebase --skip                -> Ignora o commit que gerou o conflito. Deve ser usado somente quando a mesma alteração foi feita na branch.
 
 
-git tag nometag                  -> Cria uma TAG leve para o commit atual.
+git tag nometag                  -> Cria uma TAG leve para o commit atual. (TAG: É um apontador fixo para um commit específico)
 git tag nometag cod-commit       -> Cria uma TAG para o código do commit espefífico.
 git tag -d nometag               -> Exclui uma TAG.
-git tag -a nometag -m "..."      -> Cria uma TAG anotada.
+git tag -a nometag -m "..."      -> Cria uma TAG anotada(Tag com mais detalhes).
 git show -s nometag              -> Retorna as informações de uma TAG anotada.
 git show cod-commit              -> Compara um commit ao seu commit pai.
 git push origin nometag          -> Envia a tag local para o servidor remoto.
