@@ -1,69 +1,82 @@
-GIT LOCAL
 git init                         -> Inicia um repositório GIT.
 git status                       -> Informa o estado de um repositório.
 git add                          -> Rastreia uma pasta ou arquivo para versionamento.
 git add --all                    -> Rastreia uma pasta ou arquivo mesmo que removida manualmente.
 git mv nm_atual.ext nm_novo.ext  -> Altera o nome de um arquivo ou pasta já comitados.
 git mv arq.ext pasta/arq.ext     -> Move um arquivo já comitado de diretório.
-git rm arq.ext                   -> Remove um arquivo ou pasta do versionamento.
+git rm arq.ext                   -> Remove um arquivo ou pasta do versionamento diretamente.
 git rm --cached PASTA ou ARQ.ext -> Remove o rastreamento de uma pasta ou arquivo.
 git checkout -- arq.ext          -> Desfaz as alterações não rastreadas ou a exclusão não rastreada de um arquivo.
-git reset -- arq.ext             -> Remove um arquivo alterado da área de stage, porém preserva seu conteúdo alterado.
+
+
+git reset -- arq.ext             -> Remove um arquivo rastreado da área de stage, porém preserva seu conteúdo alterado.
 git reset --hard                 -> Desfaz todas as alterações de todos os arquivos na área de stage, voltando para o estado original.
-git reset --hard Cod-Commit      -> Desfaz todas as alterações posteriores ao commit informado, ou avança até o commit informado.
-git revert --no-edit Cod-Commit  -> Desfaz a alteração do commit informado. (Sem o parâmetro --no-edit, pedirá para informar uma msg).
+git reset --hard cod-commit      -> Desfaz todas as alterações posteriores ao commit informado, ou avança até o commit informado.
+git revert --no-edit cod-commit  -> Desfaz a alteração do commit informado. (Sem o parâmetro --no-edit, pedirá para informar uma msg).
+
+
 git commit -m "Mensagem"         -> Grava as mudanças feitas no repositório.
 
-git log                          -> Verifgit ica o histório de alterações de um repositório.
-git log -n 2                     -> Retorna o número informado de logs.
-git log --oneline                -> Retorna um resumo conciso dos commits.
-git log --stat                   -> Retorna um resumo dos arquivos alterados com o número de linhas adicionadas e removidas.
-git log -n 2 --oneline --stat    -> Combinação de comandos.
-git log --parents                -> Lista os commits com seus respectivos pais.
-git log --decorate               -> Retorna o commit que está apontando para a master.
-git log --all                    -> Retorna os commits que estão em todo o repositório.
+
+git log                           -> Verifica o histório de alterações de um repositório.
+git log -n 2                      -> Retorna o número informado de logs.
+git log --oneline                 -> Retorna um resumo conciso dos commits (somente uma linha de informação para cada commit).
+git log --stat                    -> Retorna um resumo dos arquivos alterados com o número de linhas adicionadas e removidas.
+git log -n 2 --oneline --stat     -> Combinação de comandos.
+git log --parents                 -> Lista os commits com seus respectivos pais.
+git log --decorate                -> Retorna o commit que aponta para a branch atual.
+git log --all                     -> Retorna os commits que estão em todo o repositório.
 git log --graph --oneline nB1 nB2 -> Retorna de forma "gráfica" a comparação de duas branches.
 
-git diff                         -> Diferenças entre o arquivo alterado na area de stage não rastreados e o que foi comitado anteriormente.
-git diff --staged                -> Diferenças entre o arquivo alterado na area de stage rastreadas e o que foi comitado anteriormente.
-git diff Cod-Commit              -> Diferenças entre os arquivos alterados e da area de stage tanto rastreados, como não rastreados.
+
+git diff                         -> Diferenças entre todas as alterações não rastreadas na area de stage e o último commit.
+git diff arq.ext                 -> Diferença entre as alterações não rastreadas na area de stage e o último commit.
+git diff --staged                -> Diferenças entre as alterações rastreadas na area de stage e o último commit.
+git diff cod-commit              -> Diferenças da area de stage tanto os rastreados, como os não rastreados e o último commit..
 git diff HEAD                    -> ||
-git diff Cod-Commit-A..Cod-B     -> Diferenças entre dois commits.
-git diff Cod-Commit~2            -> Diferenças nos arquivos do commit de código... em relação aos dois commits feitos antes, + a area de stage.
+git diff cod-commit-a..cod-b     -> Diferenças entre dois commits.
+git diff cod-commit~2            -> Diferenças commit de código... em relação aos dois commits anteriores, + a area de stage.
 git config --global merge.tool nome -> Configura a ferramenta padrão de resolução de conflitos.
 
+
 git branch                       -> Lista as branchs existentes.
-git branch -v                    -> Retorna para qual commit a branch está apontando.
+git branch -v                    -> Retorna para qual commit a(s) branch(es) aponta(m).
 git branch -r                    -> Retorna informações das branches remotas.
 git branch -a                    -> Retorna informações das branches locais e remotas.
 git branch nomebranch            -> Cria uma branch com o nome informado.
 git branch -d nomebranch         -> Deleta a branch informada.
 git branch -D nomebranch         -> Deleta a branch informada mesmo que ela tenha commits ainda não aplicados em outras branches.
 git branch --no-merged           -> Verifica as branches não mescladas.
-git merge nbnmesclada -m         -> Mescla a branch atual com branch informada. Parametro --no-ff para evitar merges fast-foward, forçando commit.
-git merge --abort                -> Restaura os arquivos ao estado antes do merge.
+git push origin :nomebranch      -> Após detelatada uma branch local, também apaga a remota.
+
+
+git merge nbnmesclada -m "..." -> Mescla a branch atual com branch informada. Parametro --no-ff para evitar merges fast-foward(Quando a branch de destino não teve nenhum commit a mais desde que a branch a ser mesclada foi criada.), forçando commit.
+git merge --abort              -> Restaura os arquivos ao estado antes do merge.
+
+
 git checkout nomebranch          -> Alterna para a branch informada.
-git checkout -b nomebranch       -> Cria uma branch com o nome informado e alterna para a branch criada.
+git checkout -b nomebranch       -> Cria uma branch com o nome informado e muda para a branch criada.
 git checkout -b nomebranch origin/nomeremoto -> Cria uma branch com o nome informado a partir da branch remota e alterna para a branch criada.
 git checkout -t origin/nomeremoto            -> ||
-git rebase nomebranch            -> Mescla as branches, remotas ou locais, sem o histórico do merge.      
-git rebase master                -> Mescla a branch atual com master, mantendo o histórico da master intacto.
+
+
+git rebase nomebranch            -> Mescla as branches remotas ou locais, sem o histórico do merge.      
+git rebase master                -> Mescla a branch atual com a master, mantendo o histórico da master intacto.
 git rebase --continue            -> Após comitado a resolução de um conflito vindo de um rebase, o parâmetro finaliza o conflito.
 git rebase --abort               -> Após um rebase com conflito, volta a situação antes da mesclagem.
 git rebase --skip                -> Ignora o commit que gerou o conflito. Deve ser usado somente quando a mesma alteração foi feita na branch.
 
+
 git tag nometag                  -> Cria uma TAG leve para o commit atual.
-git tag nometag Cod-Commit       -> Cria uma TAG para o código do commit espefífico.
+git tag nometag cod-commit       -> Cria uma TAG para o código do commit espefífico.
 git tag -d nometag               -> Exclui uma TAG.
 git tag -a nometag -m "..."      -> Cria uma TAG anotada.
 git show -s nometag              -> Retorna as informações de uma TAG anotada.
-git show Cod-Commit              -> Compara um commit ao seu commit pai.
+git show cod-commit              -> Compara um commit ao seu commit pai.
 git push origin nometag          -> Envia a tag local para o servidor remoto.
 git push origin --tags           -> Envias todas as tags locais para o servidor remoto.
 
-GIT REMOTO 
 
-Repositório Centralizado
 git init --bare nome-projeto.git -> Inicia um repositório remoto. (--bare não permite criar um working tree, impedindo commits diretos no SERVER)
 git clone URL                    -> Obtém uma cópia do projeto.
 git remote add nm_servidor file://IP/caminho/nome-projeto.git -> Adiciona um repositório remoto ao seu repositório local.
@@ -72,9 +85,28 @@ git remote set-url file://IP/caminho/nome-projeto.git -> Redefine a url remota.
 git push nm_servidor master      -> Envia os commits locais para o servidor remoto. 
 git pull nm_servidor master      -> Recebe os commits remotos no projeto local.
 
+
 git remote add origin LINK       -> Adiciona um repositório remoto ao seu repositório local.
 git push origin master           -> Envia as alterações locais para a branch remota master.
-git pull origin master           -> Recebe as alterações remotas na branch local.
-git pull --rebase                -> Recebe as alterações remotas na branch local lineariazando os commits.
+
+git pull origin master -> Recebe as alterações remotas na branch local.
+(git fetch origin master + git merge origin/master)
+Quando usar? https://blog.sourcetreeapp.com/2012/08/21/merge-or-rebase/
+* Ao trabalharmos em uma nova funcionalidade utilizando uma branch,
+marcamos sua entrega fazendo um merge. Assim, conseguimos ter
+uma boa ideia de quando a funcionalidade começou a ser desenvolvida
+e quando foi reintegrada à branch master.
+
+git pull --rebase -> Recebe as alterações remotas na branch local lineariazando os commits.
+(git fetch origin master + git rebase origin/master)
+Quando usar? https://blog.sourcetreeapp.com/2012/08/21/merge-or-rebase/
+* Utilizar um git pull --rebase para obter mudanças remotas. É
+uma prática segura porque nossos novos commits locais ainda não fo-
+ram compartilhados, ou seja, outros membros nem sabem da existência
+desses commits. Por isso, alterá-los não traz grandes problemas.
+* Se estivermos trabalhando sozinhos na nova funcionalidade, podemos
+fazer rebases periódicos da master na nossa branch para obter código
+novo, porém deixando o histórico da branch bem limpo.
+
 git fetch origin                 -> Traz os commits das branches remotas que não estavam presentes localmente.
-git push origin :contato         -> Após detelatada uma branch local, também apaga a remota.
+
