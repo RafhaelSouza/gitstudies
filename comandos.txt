@@ -87,6 +87,7 @@ git pull nm_servidor master      -> Recebe os commits remotos no projeto local.
 
 
 git remote add origin LINK       -> Adiciona um repositório remoto ao seu repositório local.
+
 git push origin master           -> Envia as alterações locais para a branch remota master.
 
 git pull origin master -> Recebe as alterações remotas na branch local.
@@ -96,6 +97,7 @@ Quando usar? https://blog.sourcetreeapp.com/2012/08/21/merge-or-rebase/
 marcamos sua entrega fazendo um merge. Assim, conseguimos ter
 uma boa ideia de quando a funcionalidade começou a ser desenvolvida
 e quando foi reintegrada à branch master.
+git checkout master + git pull origin master + git merge branch-atual (Sequência partindo de que não se está na branch master)
 
 git pull --rebase -> Recebe as alterações remotas na branch local lineariazando os commits.
 (git fetch origin master + git rebase origin/master)
@@ -107,6 +109,7 @@ desses commits. Por isso, alterá-los não traz grandes problemas.
 * Se estivermos trabalhando sozinhos na nova funcionalidade, podemos
 fazer rebases periódicos da master na nossa branch para obter código
 novo, porém deixando o histórico da branch bem limpo.
+git checkout master + git pull origin master + git checkout branch-atual + git rebase master (Sequência partindo de que não se está na branch master)
 
 git fetch origin                 -> Traz os commits das branches remotas que não estavam presentes localmente.
 
