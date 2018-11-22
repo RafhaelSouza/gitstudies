@@ -113,3 +113,14 @@ git checkout master + git pull origin master + git checkout branch-atual + git r
 
 git fetch origin                 -> Traz os commits das branches remotas que não estavam presentes localmente.
 
+
+ROTINA COMUM
+
+git checkout master
+git pull origin master
+git checkout -b OCXXXX
+git commit -am "OCXXXX - Mensagem"
+git pull --rebase origin master
+git checkout master
+git merge OCXXXX
+git push origin master
